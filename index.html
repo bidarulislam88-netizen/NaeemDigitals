@@ -1,232 +1,190 @@
-```bash
-# Next.js 14 + Tailwind + Framer Motion Ultra-Premium Portfolio
-# Fully ready for GitHub → Vercel deploy
-```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samia Digital — Portfolio</title>
 
-Below is a **complete**, **error-free**, **ready-to-deploy** Next.js project structure.
-Just create a project → replace files → push to GitHub → Deploy to Vercel.
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
 
----
-# 📁 Project Structure
-```
-my-portfolio/
- ├─ app/
- │   ├─ globals.css
- │   ├─ layout.jsx
- │   ├─ page.jsx
- ├─ public/
- │   ├─ favicon.ico
- │   └─ resume.pdf  (optional)
- ├─ package.json
- ├─ postcss.config.js
- ├─ tailwind.config.js
- └─ next.config.js
-```
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to bottom right, #000000, #111827, #000000);
+            color: white;
+            text-align: center;
+        }
 
----
-# 📌 package.json
-```json
-{
-  "name": "samia-digital-portfolio",
-  "version": "1.0.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start"
-  },
-  "dependencies": {
-    "framer-motion": "^11.0.0",
-    "next": "14.2.0",
-    "react": "18.2.0",
-    "react-dom": "18.2.0"
-  },
-  "devDependencies": {
-    "autoprefixer": "^10.4.16",
-    "postcss": "^8.4.31",
-    "tailwindcss": "^3.4.1"
-  }
-}
-```
+        header {
+            padding: 80px 20px;
+        }
 
----
-# 📌 tailwind.config.js
-```js
-/** @type {import('tailwindcss').Config} */
-module.exports = {
-  content: [
-    "./app/**/*.{js,jsx}",
-    "./components/**/*.{js,jsx}"
-  ],
-  theme: {
-    extend: {},
-  },
-  darkMode: "class",
-  plugins: [],
-};
-```
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #444;
+            box-shadow: 0 0 20px rgba(255,0,128,0.3);
+        }
 
----
-# 📌 postcss.config.js
-```js
-module.exports = {
-  plugins: {
-    tailwindcss: {},
-    autoprefixer: {},
-  },
-};
-```
+        h1 {
+            font-size: 42px;
+            margin-top: 25px;
+            background: linear-gradient(to right, #ff007f, #b026ff);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
 
----
-# 📌 next.config.js
-```js
-/** @type {import('next').NextConfig} */
-const nextConfig = {};
-module.exports = nextConfig;
-```
+        .subtext {
+            font-size: 18px;
+            width: 80%;
+            max-width: 600px;
+            margin: 15px auto;
+            color: #ccc;
+        }
 
----
-# 📌 app/globals.css
-```css
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+        /* Project Section */
+        .projects {
+            padding: 70px 20px;
+        }
 
-body {
-  @apply bg-black text-white;
-}
-```
+        .projects h2 {
+            font-size: 34px;
+            margin-bottom: 20px;
+        }
 
----
-# 📌 app/layout.jsx
-```jsx
-export const metadata = {
-  title: "Samia Digital Portfolio",
-  description: "Ultra premium digital marketing portfolio",
-};
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+            max-width: 1000px;
+            margin: auto;
+        }
 
-export default function RootLayout({ children }) {
-  return (
-    <html lang="en" suppressHydrationWarning>
-      <body>{children}</body>
-    </html>
-  );
-}
-```
+        .card {
+            background: #111;
+            border: 1px solid #333;
+            border-radius: 14px;
+            padding: 15px;
+            transition: 0.3s;
+        }
 
----
-# 📌 app/page.jsx (Ultra Premium UI)
-```jsx
-"use client";
+        .card:hover {
+            transform: scale(1.03);
+            border-color: #ff0099;
+        }
 
-import { motion } from "framer-motion";
+        .card img {
+            width: 100%;
+            height: 170px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
 
-export default function Home() {
-  return (
-    <main className="min-h-screen w-full bg-gradient-to-br from-black via-gray-900 to-black text-white">
-      {/* HERO SECTION */}
-      <section className="w-full py-28 flex flex-col items-center text-center px-6">
-        <motion.img
-          src="YOUR_PROFILE_IMAGE_LINK"
-          className="w-36 h-36 rounded-full object-cover border border-gray-700 shadow-xl"
-          initial={{ opacity: 0, scale: 0.6 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8 }}
-        />
+        .card h3 {
+            margin: 12px 0 6px;
+            font-size: 20px;
+        }
 
-        <motion.h1
-          className="text-4xl md:text-6xl font-bold mt-6 bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 0.8 }}
-        >
-          Samia Rahman
-        </motion.h1>
+        .card p {
+            color: #aaa;
+            font-size: 14px;
+        }
 
-        <motion.p
-          className="text-lg md:text-xl max-w-2xl mt-4 text-gray-300"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.6, duration: 0.9 }}
-        >
-          Digital Traffic Monetization Specialist (USA) — Turning viral reels into targeted traffic and revenue.
-        </motion.p>
-      </section>
+        /* Contact */
+        .contact {
+            padding: 70px 20px;
+        }
 
-      {/* PROJECTS */}
-      <section className="w-full py-20 px-6 max-w-6xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center">Highlighted Projects</h2>
+        .contact h2 {
+            font-size: 34px;
+        }
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {[1, 2, 3].map((i) => (
-            <motion.div
-              key={i}
-              className="bg-gray-900 border border-gray-800 rounded-2xl p-5 shadow-xl hover:scale-[1.02] transition duration-300"
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-            >
-              <img
-                src={`PROJECT_IMAGE_LINK_${i}`}
-                className="w-full h-48 object-cover rounded-xl"
-              />
-              <h3 className="text-xl font-semibold mt-4">
-                Project {i}
-              </h3>
-              <p className="text-gray-400 mt-2 text-sm">
-                US-targeted funnels, traffic optimization and monetization workflow.
-              </p>
-            </motion.div>
-          ))}
+        .btn-group {
+            margin-top: 20px;
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 22px;
+            border-radius: 10px;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .email-btn { background: #ff007f; }
+        .wa-btn { background: #0cb043; }
+        .resume-btn { background: #333; border: 1px solid #666; }
+
+        footer {
+            padding: 30px;
+            margin-top: 40px;
+            color: #777;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HERO -->
+    <header>
+        <img src="YOUR_PROFILE_IMAGE_LINK" class="profile-img" alt="Profile Image" />
+
+        <h1>Samia Rahman</h1>
+
+        <p class="subtext">
+            Digital Traffic Monetization Specialist (USA)<br>
+            Converting viral reels into high-value US traffic & revenue.
+        </p>
+    </header>
+
+    <!-- PROJECTS -->
+    <section class="projects">
+        <h2>Featured Projects</h2>
+
+        <div class="project-grid">
+            <div class="card">
+                <img src="PROJECT_IMAGE_LINK_1">
+                <h3>Project One</h3>
+                <p>US-targeted traffic funnel optimization & monetization.</p>
+            </div>
+
+            <div class="card">
+                <img src="PROJECT_IMAGE_LINK_2">
+                <h3>Project Two</h3>
+                <p>High-performing reel campaigns pulling massive US traffic.</p>
+            </div>
+
+            <div class="card">
+                <img src="PROJECT_IMAGE_LINK_3">
+                <h3>Project Three</h3>
+                <p>Adsterra-ready optimized landing structure for conversions.</p>
+            </div>
         </div>
-      </section>
+    </section>
 
-      {/* CONTACT */}
-      <section className="w-full py-20 text-center px-6">
-        <h2 className="text-3xl md:text-4xl font-bold">Let's Work Together</h2>
-        <p className="mt-4 text-gray-400">For collaborations, campaigns or traffic strategy.</p>
+    <!-- CONTACT -->
+    <section class="contact">
+        <h2>Let’s Work Together</h2>
+        <p class="subtext">For campaigns, traffic strategy, or US audience projects.</p>
 
-        <div className="mt-6 flex flex-col md:flex-row items-center justify-center gap-4">
-          <a
-            href="mailto:YOUR_EMAIL"
-            className="px-6 py-3 rounded-xl bg-pink-600 hover:bg-pink-700 transition"
-          >
-            Email Me
-          </a>
-
-          <a
-            href="YOUR_WHATSAPP_LINK"
-            className="px-6 py-3 rounded-xl bg-green-600 hover:bg-green-700 transition"
-          >
-            WhatsApp
-          </a>
-
-          <a
-            href="/resume.pdf"
-            className="px-6 py-3 rounded-xl bg-gray-800 border border-gray-700 hover:bg-gray-700 transition"
-          >
-            Download Resume
-          </a>
+        <div class="btn-group">
+            <a href="mailto:YOUR_EMAIL" class="btn email-btn">Email Me</a>
+            <a href="YOUR_WHATSAPP_LINK" class="btn wa-btn">WhatsApp</a>
+            <a href="/resume.pdf" class="btn resume-btn">Download Resume</a>
         </div>
-      </section>
-    </main>
-  );
-}
-```
+    </section>
 
----
-# ✔ What You Must Replace
-```
-YOUR_PROFILE_IMAGE_LINK
-PROJECT_IMAGE_LINK_1
-PROJECT_IMAGE_LINK_2
-PROJECT_IMAGE_LINK_3
-YOUR_EMAIL
-YOUR_WHATSAPP_LINK
-```
+    <footer>
+        © 2025 SamiaDigital — All Rights Reserved
+    </footer>
 
----
-# ✔ After This
-তুমি শুধু এই প্রজেক্টটা GitHub এ আপলোড করবে → Vercel এ Deploy করবে।
-**কোনো error হবে না।**
+</body>
+</html>
