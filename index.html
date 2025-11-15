@@ -12,8 +12,8 @@
         body {
             margin: 0;
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(to bottom right, #000000, #111827, #000000);
-            color: white;
+            background: linear-gradient(to bottom right, #f5f7fa, #e4e7eb);
+            color: #111;
             text-align: center;
         }
 
@@ -26,16 +26,14 @@
             height: 150px;
             border-radius: 50%;
             object-fit: cover;
-            border: 3px solid #444;
-            box-shadow: 0 0 20px rgba(255,0,128,0.3);
+            border: 3px solid #ddd;
+            box-shadow: 0 4px 25px rgba(0,0,0,0.1);
         }
 
         h1 {
             font-size: 42px;
             margin-top: 25px;
-            background: linear-gradient(to right, #ff007f, #b026ff);
-            -webkit-background-clip: text;
-            color: transparent;
+            color: #1f2937;
         }
 
         .subtext {
@@ -43,7 +41,7 @@
             width: 80%;
             max-width: 600px;
             margin: 15px auto;
-            color: #ccc;
+            color: #4b5563;
         }
 
         /* Project Section */
@@ -53,7 +51,8 @@
 
         .projects h2 {
             font-size: 34px;
-            margin-bottom: 20px;
+            margin-bottom: 40px;
+            color: #111827;
         }
 
         .project-grid {
@@ -65,16 +64,16 @@
         }
 
         .card {
-            background: #111;
-            border: 1px solid #333;
+            background: #ffffff;
             border-radius: 14px;
             padding: 15px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
             transition: 0.3s;
         }
 
         .card:hover {
-            transform: scale(1.03);
-            border-color: #ff0099;
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
         }
 
         .card img {
@@ -87,10 +86,11 @@
         .card h3 {
             margin: 12px 0 6px;
             font-size: 20px;
+            color: #1f2937;
         }
 
         .card p {
-            color: #aaa;
+            color: #6b7280;
             font-size: 14px;
         }
 
@@ -101,6 +101,7 @@
 
         .contact h2 {
             font-size: 34px;
+            color: #111827;
         }
 
         .btn-group {
@@ -117,17 +118,23 @@
             color: white;
             text-decoration: none;
             font-weight: 600;
+            transition: 0.2s;
         }
 
-        .email-btn { background: #ff007f; }
-        .wa-btn { background: #0cb043; }
-        .resume-btn { background: #333; border: 1px solid #666; }
+        .btn:hover {
+            opacity: 0.9;
+        }
+
+        .email-btn { background: #3b82f6; }
+        .wa-btn { background: #10b981; }
+        .resume-btn { background: #6b7280; }
 
         footer {
             padding: 30px;
             margin-top: 40px;
-            color: #777;
+            color: #6b7280;
             font-size: 14px;
+            background: #f3f4f6;
         }
     </style>
 </head>
