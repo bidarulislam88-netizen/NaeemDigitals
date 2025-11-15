@@ -1,197 +1,239 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Samia Digital — Portfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Samia Digital — Portfolio</title>
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
 
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(to bottom right, #f5f7fa, #e4e7eb);
-            color: #111;
-            text-align: center;
+<style>
+    /* Global Styles */
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(135deg, #e0e7ff, #fef3c7);
+        color: #1f2937;
+        text-align: center;
+        scroll-behavior: smooth;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    /* HERO */
+    header {
+        padding: 80px 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        backdrop-filter: blur(10px);
+    }
+
+    .profile-img {
+        width: 160px;
+        height: 160px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 4px solid rgba(255, 255, 255, 0.4);
+        box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
+    }
+
+    .profile-img:hover {
+        transform: scale(1.05);
+    }
+
+    h1 {
+        font-size: 44px;
+        margin-top: 25px;
+        background: linear-gradient(90deg, #3b82f6, #6366f1, #f43f5e);
+        -webkit-background-clip: text;
+        color: transparent;
+    }
+
+    .subtext {
+        font-size: 18px;
+        width: 80%;
+        max-width: 600px;
+        margin: 15px auto;
+        color: #4b5563;
+    }
+
+    /* PROJECTS */
+    .projects {
+        padding: 70px 20px;
+    }
+
+    .projects h2 {
+        font-size: 36px;
+        margin-bottom: 40px;
+        color: #111827;
+    }
+
+    .project-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+        max-width: 1100px;
+        margin: auto;
+    }
+
+    .card {
+        background: rgba(255,255,255,0.8);
+        backdrop-filter: blur(12px);
+        border-radius: 16px;
+        padding: 20px;
+        box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    }
+
+    .card img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        border-radius: 12px;
+        margin-bottom: 12px;
+    }
+
+    .card h3 {
+        margin: 10px 0 6px;
+        font-size: 22px;
+        color: #1f2937;
+    }
+
+    .card p {
+        color: #6b7280;
+        font-size: 15px;
+    }
+
+    /* CONTACT */
+    .contact {
+        padding: 70px 20px;
+    }
+
+    .contact h2 {
+        font-size: 36px;
+        margin-bottom: 15px;
+        color: #111827;
+    }
+
+    .btn-group {
+        margin-top: 25px;
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .btn {
+        padding: 14px 28px;
+        border-radius: 12px;
+        color: white;
+        font-weight: 600;
+        transition: 0.2s;
+        box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    }
+
+    .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+    }
+
+    .email-btn { background: #3b82f6; }
+    .wa-btn { background: #10b981; }
+    .resume-btn { background: #6b7280; }
+
+    /* FOOTER */
+    footer {
+        padding: 30px;
+        margin-top: 40px;
+        color: #6b7280;
+        font-size: 14px;
+        background: #f3f4f6;
+    }
+
+    /* Animations */
+    .fade-in {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeInUp 1s forwards;
+    }
+
+    @keyframes fadeInUp {
+        to {
+            opacity: 1;
+            transform: translateY(0);
         }
-
-        header {
-            padding: 80px 20px;
-        }
-
-        .profile-img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid #ddd;
-            box-shadow: 0 4px 25px rgba(0,0,0,0.1);
-        }
-
-        h1 {
-            font-size: 42px;
-            margin-top: 25px;
-            color: #1f2937;
-        }
-
-        .subtext {
-            font-size: 18px;
-            width: 80%;
-            max-width: 600px;
-            margin: 15px auto;
-            color: #4b5563;
-        }
-
-        /* Project Section */
-        .projects {
-            padding: 70px 20px;
-        }
-
-        .projects h2 {
-            font-size: 34px;
-            margin-bottom: 40px;
-            color: #111827;
-        }
-
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 25px;
-            max-width: 1000px;
-            margin: auto;
-        }
-
-        .card {
-            background: #ffffff;
-            border-radius: 14px;
-            padding: 15px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-            transition: 0.3s;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
-        }
-
-        .card img {
-            width: 100%;
-            height: 170px;
-            object-fit: cover;
-            border-radius: 10px;
-        }
-
-        .card h3 {
-            margin: 12px 0 6px;
-            font-size: 20px;
-            color: #1f2937;
-        }
-
-        .card p {
-            color: #6b7280;
-            font-size: 14px;
-        }
-
-        /* Contact */
-        .contact {
-            padding: 70px 20px;
-        }
-
-        .contact h2 {
-            font-size: 34px;
-            color: #111827;
-        }
-
-        .btn-group {
-            margin-top: 20px;
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 12px 22px;
-            border-radius: 10px;
-            color: white;
-            text-decoration: none;
-            font-weight: 600;
-            transition: 0.2s;
-        }
-
-        .btn:hover {
-            opacity: 0.9;
-        }
-
-        .email-btn { background: #3b82f6; }
-        .wa-btn { background: #10b981; }
-        .resume-btn { background: #6b7280; }
-
-        footer {
-            padding: 30px;
-            margin-top: 40px;
-            color: #6b7280;
-            font-size: 14px;
-            background: #f3f4f6;
-        }
-    </style>
+    }
+</style>
 </head>
 <body>
 
-    <!-- HERO -->
-    <header>
-        <img src="YOUR_PROFILE_IMAGE_LINK" class="profile-img" alt="Profile Image" />
+<!-- HERO -->
+<header class="fade-in">
+    <img src="YOUR_PROFILE_IMAGE_LINK" class="profile-img" alt="Profile Image" />
 
-        <h1>Samia Rahman</h1>
+    <h1>Samia Rahman</h1>
 
-        <p class="subtext">
-            Digital Traffic Monetization Specialist (USA)<br>
-            Converting viral reels into high-value US traffic & revenue.
-        </p>
-    </header>
+    <p class="subtext">
+        Digital Traffic Monetization Specialist (USA)<br>
+        Converting viral reels into high-value US traffic & revenue.
+    </p>
+</header>
 
-    <!-- PROJECTS -->
-    <section class="projects">
-        <h2>Featured Projects</h2>
+<!-- PROJECTS -->
+<section class="projects fade-in">
+    <h2>Featured Projects</h2>
 
-        <div class="project-grid">
-            <div class="card">
-                <img src="PROJECT_IMAGE_LINK_1">
-                <h3>Project One</h3>
-                <p>US-targeted traffic funnel optimization & monetization.</p>
-            </div>
-
-            <div class="card">
-                <img src="PROJECT_IMAGE_LINK_2">
-                <h3>Project Two</h3>
-                <p>High-performing reel campaigns pulling massive US traffic.</p>
-            </div>
-
-            <div class="card">
-                <img src="PROJECT_IMAGE_LINK_3">
-                <h3>Project Three</h3>
-                <p>Adsterra-ready optimized landing structure for conversions.</p>
-            </div>
+    <div class="project-grid">
+        <div class="card">
+            <img src="PROJECT_IMAGE_LINK_1" alt="Project One">
+            <h3>Project One</h3>
+            <p>US-targeted traffic funnel optimization & monetization.</p>
         </div>
-    </section>
 
-    <!-- CONTACT -->
-    <section class="contact">
-        <h2>Let’s Work Together</h2>
-        <p class="subtext">For campaigns, traffic strategy, or US audience projects.</p>
-
-        <div class="btn-group">
-            <a href="mailto:YOUR_EMAIL" class="btn email-btn">Email Me</a>
-            <a href="YOUR_WHATSAPP_LINK" class="btn wa-btn">WhatsApp</a>
-            <a href="/resume.pdf" class="btn resume-btn">Download Resume</a>
+        <div class="card">
+            <img src="PROJECT_IMAGE_LINK_2" alt="Project Two">
+            <h3>Project Two</h3>
+            <p>High-performing reel campaigns pulling massive US traffic.</p>
         </div>
-    </section>
 
-    <footer>
-        © 2025 SamiaDigital — All Rights Reserved
-    </footer>
+        <div class="card">
+            <img src="PROJECT_IMAGE_LINK_3" alt="Project Three">
+            <h3>Project Three</h3>
+            <p>Adsterra-ready optimized landing structure for conversions.</p>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact fade-in">
+    <h2>Let’s Work Together</h2>
+    <p class="subtext">For campaigns, traffic strategy, or US audience projects.</p>
+
+    <div class="btn-group">
+        <a href="mailto:YOUR_EMAIL" class="btn email-btn">Email Me</a>
+        <a href="YOUR_WHATSAPP_LINK" class="btn wa-btn">WhatsApp</a>
+        <a href="/resume.pdf" class="btn resume-btn">Download Resume</a>
+    </div>
+</section>
+
+<footer>
+    © 2025 SamiaDigital — All Rights Reserved
+</footer>
 
 </body>
 </html>
